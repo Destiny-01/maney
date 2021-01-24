@@ -11,14 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+
+  <div class="row">
+    <div class="col">
+      <div class="field form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Choose a language
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="drop">
+          <li><a href="#" class="dropdown-item">Default(text)</a></li>
+          <li><a href="#" class="dropdown-item">Ruby</a></li>
+          <li><a href="#" class="dropdown-item">Other</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
+  
+
+  <div class="field form-group">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: "form-control" %>
   </div>
 
   <div class="actions">
