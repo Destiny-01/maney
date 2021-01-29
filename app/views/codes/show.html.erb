@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @code.title %>
+    <strong>Title:</strong>
+    <%#= @code.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @code.body %>
+    <strong>Body:</strong>
+    <%#= @code.body %>
 </p>
 
-<%= link_to 'Edit', edit_code_path(@code) %> |
+<%= render 'home/index'%><br>
+<%= link_to 'Edit', edit_code_path %> |
 <%= link_to 'Back', codes_path %>

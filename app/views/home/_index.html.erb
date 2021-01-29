@@ -1,0 +1,28 @@
+<%= javascript_include_tag "clipboard.min" %>
+<i class="fa fa-share"></i>
+<button class="btn btn-primary">Share</button>
+
+<!-- 3. Instantiate clipboard -->
+<script>
+    var clipboard = new ClipboardJS('.btn', {
+        text: function() {
+            return window.location.href;
+        },
+    });
+
+    clipboard.on('success', function(e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+
+        e.clearSelection();
+    });
+
+    // clipboard.on('success', function(e) {
+    //     Copied to clipboard
+    // });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>

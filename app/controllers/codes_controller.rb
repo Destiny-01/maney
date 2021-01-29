@@ -1,17 +1,18 @@
 class CodesController < ApplicationController
+  before_action :check_quota, only: [:create]
   before_action :set_code, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user! || :authenticate_pro!, only: [:create, :edit, :update, :destroy]
+  
   # GET /codes
   # GET /codes.json
   def index
     @codes = Code.all
   end
 
-  HardWorker.perform_at(168.hours.from_now)
-
   # GET /codes/1
   # GET /codes/1.json
   def show
+    @code = Code.find_by_hashid(params[:hashid])
   end
 
   # GET /codes/new
@@ -21,6 +22,7 @@ class CodesController < ApplicationController
 
   # GET /codes/1/edit
   def edit
+    Code.find_by_hashid(params[:hashid])
   end
 
   # POST /codes
@@ -42,6 +44,7 @@ class CodesController < ApplicationController
   # PATCH/PUT /codes/1
   # PATCH/PUT /codes/1.json
   def update
+    Code.find_by_hashid(params[:hashid])
     respond_to do |format|
       if @code.update(code_params)
         format.html { redirect_to @code, notice: 'Code was successfully updated.' }
@@ -62,15 +65,23 @@ class CodesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.
+    def check_quota
+      if Code.count >= 5
+        @quota_warning = "code limit reached."
+      end
+    end
+
     def set_code
-      @code = Code.find(params[:hashid])
+      @code = Code.find_by_hashid(params[:hashid])
+      # @code = Code.find Code.decrypt_id(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def code_params
-      params.require(:code).permit(:title, :body)
+      params.require(:code).permit(:title, :body, :language)
     end
 end

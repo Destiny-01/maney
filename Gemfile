@@ -15,7 +15,11 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'sidekiq'
+gem 'devise'
+gem "pundit"
+gem 'clipboard-rails'
 gem 'hashid-rails'
+# gem 'friendly_id'
 gem 'react_on_rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

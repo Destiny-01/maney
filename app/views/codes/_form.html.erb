@@ -1,46 +1,71 @@
 <%= form_with(model: code) do |form| %>
-  <% if code.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(code.errors.count, "error") %> prohibited this code from being saved:</h2>
+<% if @code.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(code.errors.count, "error") %> prohibited this code from being saved:</h2>
 
-      <ul>
+    <ul>
         <% code.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
 
-  <div class="row">
+<div class="row">
     <div class="col">
-      <div class="field form-group">
-        <%= form.label :title %>
-        <%= form.text_field :title, class: "form-control" %>
-      </div>
+        <div class="field form-group">
+            <%= form.label :title %>
+            <%= form.text_field :title, class: "form-control" %>
+        </div>
     </div>
     <div class="col">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          Choose a language
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="drop">
-          <li><a href="#" class="dropdown-item">Default(text)</a></li>
-          <li><a href="#" class="dropdown-item">Ruby</a></li>
-          <li><a href="#" class="dropdown-item">Other</a></li>
-        </ul>
-      </div>
+        <div class="field form-group">
+            <%= form.select :language, ['Default(text)', 'Ruby', 'Other'] %>
+        </div>
     </div>
-  </div>
+</div>
+<%# <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Choose a language
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a href="#" class="dropdown-item">Default(text)</a></li>
+        <li><a href="#" class="dropdown-item">Ruby</a></li>
+        <li><a href="#" class="dropdown-item">Other</a></li>
+    </ul>
+</div> %>
 
-  
 
-  <div class="field form-group">
+<div class="field form-group">
     <%= form.label :body %>
     <%= form.text_area :body, class: "form-control" %>
-  </div>
+</div>
 
-  <div class="actions">
+<div class="actions">
+    <%
+=begin%>
+    <% if codes_count_within_limit %>
+    <button type="button" class="btn btn-default"> You have <%= 5 - Code.count %> Codes Left. Upgrade to
+        <a href="/pro/sign_up">pro</a> now to get unlimited codes <%= @quota_warning %>
+    </button>
+    <%else%>
     <%= form.submit %>
-  </div>
+    <%end%>
+    <% if @quota_warning.present? %>
+    <button type="button" class="btn btn-default"> You have <%= 5 - Code.count %> Codes Left. Upgrade to
+        <a href="/pro/sign_up">pro</a> now to get unlimited codes <%= @quota_warning %>
+    </button>
+    <% else %>
+    <% end %>
+    <%
+=end%>
+
+    <% if Code.count >= 3 %>
+    <% code.errors.add(:base, 'Exceeded Code Limit. Delete others or upgrade to pro')%>
+
+    <% else %>
+    <%= form.submit %>
+    <% end %>
+</div>
 <% end %>
