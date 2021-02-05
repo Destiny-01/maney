@@ -1,9 +1,0 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You were meant to pay before accessing pro but You are getting it for free because you are one of our first customers.</p><br>
-
-<p>This link will expire in 24 hours</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>

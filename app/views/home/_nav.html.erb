@@ -1,37 +1,25 @@
-<%= stylesheet_link_tag "home"%>
+<%= stylesheet_link_tag "home" %>
 
 <nav class="navbar navbar-expand-lg tt">
     <%= link_to "Maney", root_path, class: "btn btn-lg text-bold text-white aa " %>
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <%# <span class="navbar-toggler-icon "></span> %>
+        <% # <span class="navbar-toggler-icon "></span> %>
         <i class="fa fa-bars"></i>
     </button>
     <div class="collapse  navbar-collapse" id="navbarNavDropdown">
         <div class="navbar-nav ms-auto">
-            <% if pro_signed_in? || user_signed_in? %>
-            <%= link_to "Home", "/", class: "nav-link text-white px-4" %>
-            <%= link_to new_code_path, class: "nav-link btn btn-liht ba btn-round px-2" do %>
-            <i class="fa fa-upload"></i>
-            <span>New Code</span>
-            <% end %>
-            <%= link_to "Edit", edit_user_registration_path, class: "nav-link text-white px-4 text-bold ty" %>
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link text-white " %>
+            <% if user_signed_in? %>
+                <%= link_to "Home", "/", class: "nav-link text-white px-3" %>
+                <%= link_to new_code_path, class: "nav-link btn btn-liht ba btn-round px-3" do %>
+                <i class="fa fa-upload"></i>
+                    <span>New Code</span>
+                <% end %>
+                <%= link_to "Edit", edit_user_registration_path, class: "nav-link text-white px-3 text-bold ty" %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link text-white " %>
             <% else %>
-            <%= link_to "Home", "/", class: "nav-link text-white" %>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle nav-link text-white" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign In</a>
-                <ul class="dropdown-menu">
-                    <li><a href="/pro/sign_in" class="dropdown-item nav-link">Pro User Sign In</a></li>
-                    <li><a href="/free/sign_in" class="dropdown-item nav-link ">Free User Sign In</a></li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle nav-link text-white" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign up</a>
-                <ul class="dropdown-menu">
-                    <li><a href="/pro/sign_up" class="dropdown-item nav-link">Pro User Sign up</a></li>
-                    <li><a href="/free/sign_up" class="dropdown-item nav-link ">Free User Sign up</a></li>
-                </ul>
-            </li>
+                <%= link_to "Home", "/", class: "nav-link text-white" %>
+                <a href="/users/sign_up" class=" nav-link text-white">Sign up</a>
+                <a href="/users/sign_in" class="text-white nav-link ">Sign In</a>
             <% end %>
         </div>
     </div>

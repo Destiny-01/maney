@@ -4,4 +4,5 @@
 // const { default: ClipboardAction } = require("/assets/clipboard-action")
 
 //= require clipboard
+//= require codemirror
 //= require clipboard.min

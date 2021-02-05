@@ -1,10 +1,17 @@
 <%= javascript_include_tag "clipboard.min" %>
-<i class="fa fa-share"></i>
-<button class="btn btn-primary">Share</button>
+
+<div class="btn-group dropup">
+    <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fa fa-share">  Share </i>
+    </button> - (Don't expect a confirmation message)
+    <ul class="dropdown-menu">
+        <li><button class="btn dropdown-item active copy"><i class="fa fa-copy">Copy Link </i></button></li>
+    </ul>
+</div>
 
 <!-- 3. Instantiate clipboard -->
 <script>
-    var clipboard = new ClipboardJS('.btn', {
+    var clipboard = new ClipboardJS('.copy', {
         text: function() {
             return window.location.href;
         },
@@ -18,9 +25,9 @@
         e.clearSelection();
     });
 
-    // clipboard.on('success', function(e) {
-    //     Copied to clipboard
-    // });
+    clipboard.on('success', function(e) {
+       return Copied to clipboard
+    });
 
     clipboard.on('error', function(e) {
         console.log(e);

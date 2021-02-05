@@ -1,8 +1,7 @@
 class CodesController < ApplicationController
   before_action :check_quota, only: [:create]
   before_action :set_code, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! || :authenticate_pro!, only: [:create, :edit, :update, :destroy]
-  
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   # GET /codes
   # GET /codes.json
   def index
@@ -12,7 +11,6 @@ class CodesController < ApplicationController
   # GET /codes/1
   # GET /codes/1.json
   def show
-    @code = Code.find_by_hashid(params[:hashid])
   end
 
   # GET /codes/new
@@ -21,14 +19,14 @@ class CodesController < ApplicationController
   end
 
   # GET /codes/1/edit
-  def edit
-    Code.find_by_hashid(params[:hashid])
+  def edit 
   end
 
   # POST /codes
   # POST /codes.json
   def create
-    @code = Code.new(code_params)
+    @code = current_user.codes.build(code_params)
+    # @code = Code.new(code_params)
 
     respond_to do |format|
       if @code.save
@@ -44,7 +42,6 @@ class CodesController < ApplicationController
   # PATCH/PUT /codes/1
   # PATCH/PUT /codes/1.json
   def update
-    Code.find_by_hashid(params[:hashid])
     respond_to do |format|
       if @code.update(code_params)
         format.html { redirect_to @code, notice: 'Code was successfully updated.' }
@@ -76,8 +73,8 @@ class CodesController < ApplicationController
     end
 
     def set_code
-      @code = Code.find_by_hashid(params[:hashid])
-      # @code = Code.find Code.decrypt_id(params[:id])
+      # Rails.logger.info params[:hashid]
+      @code = Code.find_by_hashid(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

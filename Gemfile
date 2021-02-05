@@ -16,7 +16,12 @@ gem 'webpacker'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'sidekiq'
 gem 'devise'
+gem "codemirror-rails"
+gem 'cancancan'
 gem "pundit"
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'simple_form'
 gem 'clipboard-rails'
 gem 'hashid-rails'
 # gem 'friendly_id'

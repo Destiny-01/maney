@@ -1,0 +1,30 @@
+</div>
+    <div class="col">
+      <div class="field">
+          <%= f.label :status %><br />
+          <%= f.label :status, "Free", :value => "free"  %>
+          <%= f.radio_button :status, true, :checked => true %>
+          <%= f.label :status, "Pro", :value => "pro" %>
+          <%= f.radio_button :status, false %>
+      </div>
+    </div>
+  </div>
+
+
+  
+=begin%>
+    <% if codes_count_within_limit %>
+    <button type="button" class="btn btn-default"> You have <%= 5 - Code.count %> Codes Left. Upgrade to
+        <a href="/pro/sign_up">pro</a> now to get unlimited codes <%= @quota_warning %>
+    </button>
+    <%else%>
+    <%= form.submit %>
+    <%end%>
+    <% if @quota_warning.present? %>
+    <button type="button" class="btn btn-default"> You have <%= 5 - Code.count %> Codes Left. Upgrade to
+        <a href="/pro/sign_up">pro</a> now to get unlimited codes <%= @quota_warning %>
+    </button>
+    <% else %>
+    <% end %>
+    <%
+=end%>

@@ -7,13 +7,29 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
 </div>
+  Your Id is <%= current_user.id %>.
+  bbn<%= current_user.role %>
+  bbn<%= current_user.status %>
+  
+  <% if current_user.status = 0 %>
+      gggggg
+    <% else %>
+      mfnf
+  <% end %>
+  
+    <% if can? :manage,  %>
+      You have <%= 100 - Code.count %> codes left. 
+    <% elsif @user.role == "pro" %>
+      You have 100000000000 codes left.
+    <% end %>
+      ggg 
 
-<%= current_user.id %>
+
 
 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 <% end %>
-
+<br>
 <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
@@ -31,6 +47,11 @@
 <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
+</div>
+
+<div class="field">
+    <%= f.label "Staus:" %>
+    <%= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
 </div>
 
 <div class="actions">
