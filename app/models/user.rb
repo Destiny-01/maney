@@ -14,6 +14,8 @@ class User < ApplicationRecord
   def default
     self.role ||= :user
   end
+
+  # HardWorker.perform_at(168.hours.from_now) if user.role == "user"
   # INDIVIDUAL_PLANS_LIMIT = 3
   # def over_plan_limit?
   #   self.code? && self.codes.count > INDIVIDUAL_PLANS_LIMIT

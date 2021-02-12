@@ -11,3 +11,14 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+require("go/go");
+require("hmtlmixed/htmlmixed");
+require("javascript/javascript");
+require("php/php");
+require("python/python");
+require("r/r");
+require("ruby/ruby");
+require("sql/sql");
+require("swift/swift");
+require("css/css");
+require("xml/xml");

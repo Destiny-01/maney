@@ -28,3 +28,418 @@
     <% end %>
     <%
 =end%>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Pastebin</title>
+		<meta name="description" content="Pastebin.pl is a website where you can store code/text online for a set period of time and share to anybody on earth" />
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+<link type="text/css" rel="stylesheet" href="https://pastebin.pl/static/asset/15320141356fe652146aefffcee5e73b9d19256f5d.css" media="screen" />
+	<script type="text/javascript">
+	//<![CDATA[
+	var base_url = 'https://pastebin.pl/';
+	//]]>
+	</script>
+	</head>
+	<body>		
+		<header>
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#stikked-nav">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="https://pastebin.pl/"><i class="fa fa-home"></i> Pastebin</a>
+					</div>
+					<div class="collapse navbar-collapse" id="stikked-nav">
+						<ul class="nav navbar-nav">
+														<li><a class="active" href="https://pastebin.pl/" title="Create A New Paste"><i class="fa fa-plus-circle"></i> Create</a></li>
+															<li><a  href="https://pastebin.pl/lists" title="Recent Pastes"><i class="fa fa-rss-square"></i> Recent</a></li>
+								<li><a  href="https://pastebin.pl/trends" title="Trending Pastes"><i class="fa fa-star"></i> Trending</a></li>
+																					<li><a   href="https://pastebin.pl/about" title="About"><i class="fa fa-info-circle"></i> About</a></li>
+							
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				
+				
+			</nav>
+			
+			<div id="socials">
+				<a id="socials_facebook" href="https://www.facebook.com/pastebinpl" target="blank"><div>Facebook</div></a>
+				<!-- <a id="socials_twitter" href="#"><div>TW</div></a>
+				<a id="socials_google" href="#"><div>GO</div></a> -->
+			</div>
+		</header>
+
+		<div class="container">
+		
+		
+		
+		
+								
+
+
+
+
+<div class="row">
+	<div class="col-12 col-sm-12 col-lg-12">
+		<div class="page-header">
+			<h1>			Create a new paste						<a href="https://www.binance.com/en/register?ref=11561973"><img src="/custom-images/btc.png" width="20%" height="20%" style="float:center"  alt="safest cryptocurrency exchange"></a>
+			</h1>
+		</div>
+		
+	</div>
+	<div class="col-12 col-sm-12 col-lg-12">
+		<form action="/codes" method="post" class="form-vertical well">
+			<div class="row">
+				<div class="col-3 col-sm-12 col-lg-3">
+					<label for="name">
+						<i class="fa fa-user"></i> Author					</label>
+					<input type="text" name="name" value="" id="name" class="form-control" maxlength="32" tabindex="1"  />				</div>
+				
+				<div class="col-3 col-sm-12 col-lg-3">
+					<label for="title">
+						<i class="fa fa-flag"></i> Title					</label>
+					<input value="" class="form-control" type="text" id="title" name="title" tabindex="2" maxlength="50" />
+				</div>
+		
+				<div class="col-3 col-sm-12 col-lg-3">
+					<label for="lang">
+						<i class="fa fa-code"></i> Language					</label>
+			<select name="lang" id="lang" class="select form-control" tabindex="3">
+				<option value="text" selected="selected">Plain Text</option>
+				<option value="html5">HTML5</option>
+				<option value="css">CSS</option>
+				<option value="javascript">JavaScript</option>
+				<option value="php">PHP</option>
+				<option value="python">Python</option>
+				<option value="ruby">Ruby</option>
+				<option value="lua">Lua</option>
+				<option value="bash">Bash</option>
+				<option value="erlang">Erlang</option>
+				<option value="go">Go</option>
+				<option value="c">C</option>
+				<option value="cpp">C++</option>
+				<option value="diff">Diff-output</option>
+				<option value="latex">LaTeX</option>
+				<option value="sql">SQL</option>
+				<option value="xml">XML</option>
+				<option value="0">-----------------</option>
+				<option value="4cs">4CS</option>
+				<option value="6502acme">MOS 6502</option>
+				<option value="6502kickass">MOS 6502 Kick Assembler</option>
+				<option value="6502tasm">MOS 6502 TASM/64TASS</option>
+				<option value="68000devpac">Motorola 68000 Devpac Assembler</option>
+				<option value="abap">ABAP</option>
+				<option value="actionscript">Actionscript</option>
+				<option value="actionscript3">ActionScript3</option>
+				<option value="ada">Ada</option>
+				<option value="aimms">AIMMS</option>
+				<option value="algol68">ALGOL 68</option>
+				<option value="apache">Apache</option>
+				<option value="applescript">AppleScript</option>
+				<option value="apt_sources">Apt sources.list</option>
+				<option value="arm">ARM Assembler</option>
+				<option value="asm">x86 Assembler</option>
+				<option value="asymptote">asymptote</option>
+				<option value="asp">ASP</option>
+				<option value="autoconf">autoconf</option>
+				<option value="autohotkey">Autohotkey</option>
+				<option value="autoit">AutoIT</option>
+				<option value="avisynth">AviSynth</option>
+				<option value="awk">Awk</option>
+				<option value="bascomavr">BASCOM AVR</option>
+				<option value="basic4gl">Basic4GL</option>
+				<option value="bf">Brainfuck</option>
+				<option value="bibtex">BibTeX</option>
+				<option value="blitzbasic">BlitzBasic</option>
+				<option value="bnf">BNF (Backus-Naur form)</option>
+				<option value="boo">Boo</option>
+				<option value="c_loadrunner">C (for LoadRunner)</option>
+				<option value="c_mac">C for Macs</option>
+				<option value="c_winapi">C with WiAPI</option>
+				<option value="caddcl">CAD DCL (Dialog Control Language)</option>
+				<option value="cadlisp">AutoCAD/IntelliCAD Lisp</option>
+				<option value="cfdg">CFDG</option>
+				<option value="cfm">ColdFusion</option>
+				<option value="chaiscript">ChaiScript</option>
+				<option value="chapel">Chapel</option>
+				<option value="cil">CIL (Common Intermediate Language)</option>
+				<option value="clojure">Clojure</option>
+				<option value="cmake">CMake</option>
+				<option value="cobol">COBOL</option>
+				<option value="coffeescript">CoffeeScript</option>
+				<option value="cpp-winapi">C++ with WinAPI</option>
+				<option value="csharp">C#</option>
+				<option value="cuesheet">Cuesheet</option>
+				<option value="d">D</option>
+				<option value="dart">Dart</option>
+				<option value="dcs">DCS</option>
+				<option value="dcl">DCL</option>
+				<option value="dcpu16">DCPU/16 Assembly</option>
+				<option value="delphi">Delphi (Object Pascal)</option>
+				<option value="div">DIV</option>
+				<option value="dos">DOS</option>
+				<option value="dot">dot</option>
+				<option value="e">E</option>
+				<option value="ecmascript">ECMAScript</option>
+				<option value="eiffel">Eiffel</option>
+				<option value="email">Email (mbox/eml/RFC format)</option>
+				<option value="epc">Enerscript</option>
+				<option value="euphoria">Euphoria</option>
+				<option value="ezt">EZT</option>
+				<option value="f1">Formula One</option>
+				<option value="falcon">Falcon</option>
+				<option value="fo">fo</option>
+				<option value="fortran">Fortran</option>
+				<option value="freebasic">FreeBasic</option>
+				<option value="freeswitch">FreeSWITCH</option>
+				<option value="fsharp">F#</option>
+				<option value="gambas">GAMBAS</option>
+				<option value="gdb">GDB</option>
+				<option value="genero">Genero</option>
+				<option value="genie">Genie</option>
+				<option value="gettext">GNU Gettext .po/.pot</option>
+				<option value="glsl">glSlang</option>
+				<option value="gml">GML</option>
+				<option value="gnuplot">Gnuplot script</option>
+				<option value="groovy">Groovy</option>
+				<option value="gwbasic">GwBasic</option>
+				<option value="haskell">Haskell</option>
+				<option value="haxe">Haxe</option>
+				<option value="hicest">HicEst</option>
+				<option value="hq9plus">HQ9+</option>
+				<option value="html4strict">HTML 4.01 strict</option>
+				<option value="icon">Icon</option>
+				<option value="idl">Unoidl</option>
+				<option value="ini">INI</option>
+				<option value="inno">Inno Script</option>
+				<option value="intercal">INTERCAL</option>
+				<option value="io">Io</option>
+				<option value="ispfpanel">ISPF Panel</option>
+				<option value="j">J</option>
+				<option value="java">Java</option>
+				<option value="java5">Java 5</option>
+				<option value="jcl">Job Control Language</option>
+				<option value="jquery">jQuery 1.3</option>
+				<option value="klonec">KLone with C</option>
+				<option value="klonecpp">KLone with C++</option>
+				<option value="lb">Liberty BASIC</option>
+				<option value="ldif">LDIF</option>
+				<option value="lisp">Generic Lisp</option>
+				<option value="llvm">LLVM</option>
+				<option value="locobasic">Locomotive Basic (Amstrad CPC series)</option>
+				<option value="logcat">Logcat</option>
+				<option value="logtalk">Logtalk</option>
+				<option value="lolcode">LOLcode</option>
+				<option value="lotusformulas">@Formula/@Command</option>
+				<option value="lotusscript">LotusScript</option>
+				<option value="lscript">Lightwave Script</option>
+				<option value="lsl2">Linden Scripting</option>
+				<option value="m68k">Motorola 68000 Assembler</option>
+				<option value="magiksf">MagikSF</option>
+				<option value="make">Make</option>
+				<option value="mapbasic">MapBasic</option>
+				<option value="matlab">Matlab M-file</option>
+				<option value="mirc">mIRC Scripting</option>
+				<option value="mmix">MMIX Assembler</option>
+				<option value="modula2">Modula-2</option>
+				<option value="modula3">Modula-3</option>
+				<option value="mpasm">Microchip Assembler</option>
+				<option value="mxml">MXML</option>
+				<option value="mysql">MySQL</option>
+				<option value="nagios">Nagios</option>
+				<option value="netrexx">NetRexx</option>
+				<option value="newlisp">newLISP</option>
+				<option value="nginx">nginx</option>
+				<option value="nimrod">Nimrod</option>
+				<option value="nsis">Nullsoft Scriptable Install System</option>
+				<option value="oberon2">Oberon-2</option>
+				<option value="objc">Objective-C</option>
+				<option value="objeck">Objeck Programming Language</option>
+				<option value="ocaml">OCaml (Objective Caml)</option>
+				<option value="octave">GNU Octave M-file</option>
+				<option value="oobas">OpenOffice.org Basic</option>
+				<option value="oorexx">ooRexx</option>
+				<option value="oracle11">Oracle 11i</option>
+				<option value="oracle8">Oracle 8</option>
+				<option value="oxygene">Delphi Prism (Oxygene)</option>
+				<option value="oz">Oz</option>
+				<option value="parasail">ParaSail</option>
+				<option value="parigp">PARI/GP</option>
+				<option value="pascal">Pascal</option>
+				<option value="pcre">PCRE</option>
+				<option value="per">Per (forms)</option>
+				<option value="perl">Perl</option>
+				<option value="perl6">Perl 6</option>
+				<option value="pf">OpenBSD packet filter</option>
+				<option value="pic16">PIC16 Assembler</option>
+				<option value="pike">Pike</option>
+				<option value="pixelbender">Pixel Bender 1.0</option>
+				<option value="pli">PL/I</option>
+				<option value="plsql">Oracle 9.2 PL/SQL</option>
+				<option value="postgresql">PostgreSQL</option>
+				<option value="postscript">Postscript</option>
+				<option value="povray">Povray</option>
+				<option value="powerbuilder">PowerBuilder (PowerScript)</option>
+				<option value="powershell">PowerShell</option>
+				<option value="proftpd">ProFTPd</option>
+				<option value="progress">Progress</option>
+				<option value="prolog">Prolog</option>
+				<option value="properties">Property</option>
+				<option value="providex">ProvideX</option>
+				<option value="purebasic">PureBasic</option>
+				<option value="pys60">Python for S60</option>
+				<option value="q">q/kdb+</option>
+				<option value="qbasic">QBasic/QuickBASIC</option>
+				<option value="qml">QML</option>
+				<option value="racket">Racket</option>
+				<option value="rails">Ruby (with Ruby on Rails Framework)</option>
+				<option value="rbs">RBS Script</option>
+				<option value="rebol">Rebol</option>
+				<option value="reg">Microsoft Registry Editor</option>
+				<option value="rexx">Rexx</option>
+				<option value="robots">robots.txt</option>
+				<option value="rpmspec">RPM Spec</option>
+				<option value="rsplus">R</option>
+				<option value="rust">Rust</option>
+				<option value="sas">SAS</option>
+				<option value="scala">Scala</option>
+				<option value="scheme">Scheme</option>
+				<option value="scilab">SciLab</option>
+				<option value="scl">SCL</option>
+				<option value="sdlbasic">sdlBasic</option>
+				<option value="smalltalk">Smalltalk</option>
+				<option value="smarty">Smarty template</option>
+				<option value="spark">SPARK</option>
+				<option value="sparql">SPARQL</option>
+				<option value="standardml">StandardML</option>
+				<option value="stonescript">StoneScript</option>
+				<option value="systemverilog">SystemVerilog IEEE 1800-2009(draft8)</option>
+				<option value="tcl">TCL/iTCL</option>
+				<option value="teraterm">Tera Term Macro</option>
+				<option value="thinbasic">thinBasic</option>
+				<option value="tsql">T-SQL</option>
+				<option value="typoscript">TypoScript</option>
+				<option value="unicon">Unicon</option>
+				<option value="uscript">UnrealScript</option>
+				<option value="upc">UPC</option>
+				<option value="urbi">Urbi</option>
+				<option value="vala">Vala</option>
+				<option value="vb">Visual Basic</option>
+				<option value="vbnet">VB.NET</option>
+				<option value="vbscript">VBScript</option>
+				<option value="vedit">Vedit macro language</option>
+				<option value="verilog">Verilog</option>
+				<option value="vhdl">VHDL</option>
+				<option value="vim">Vim scripting</option>
+				<option value="visualfoxpro">Visual FoxPro</option>
+				<option value="visualprolog">Visual Prolog</option>
+				<option value="whitespace">Whitespace</option>
+				<option value="whois">Whois response (RPSL format)</option>
+				<option value="winbatch">WinBatch</option>
+				<option value="xbasic">XBasic</option>
+				<option value="xorg_conf">xorg.conf</option>
+				<option value="xpp">Axapta/Dynamics Ax X++</option>
+				<option value="yaml">YAML</option>
+				<option value="z80">ZiLOG Z80 Assembler</option>
+				<option value="zxbasic">ZXBasic</option>
+			</select>				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-12 col-sm-12 col-lg-12">
+					<label for="code"><i class="fa fa-paste"></i> Your paste						<span class="instruction"> - Paste your paste here</span>
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<textarea id="code" class="form-control" name="code" rows="20" tabindex="4"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-8 col-sm-12 col-lg-8">
+					<div class="control-group">
+						<div class="controls">
+						<!--
+							<label class="checkbox">
+								<input type="checkbox" name="snipurl" value="1" id="snipurl" tabindex="5" disabled="disabled"  />								Create Shorturl - Create a shorter url that redirects to your paste?							</label>
+								-->
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox">
+								<input type="checkbox" name="private" value="1" id="private" tabindex="6"  />								Private - Private paste aren't shown in recent listings.							</label>
+						</div>
+					</div>
+					<div class="item">
+						<label for="expire">
+							<i class="fa fa-calendar"></i> Delete After							<span class="instruction">- When should we delete your paste?</span>
+						</label>
+						<select name="expire" id="expire" class="form-control select" tabindex="8">
+<option value="burn" selected="selected">Burn on reading</option>
+<option value="0" selected="selected">Keep Forever</option>
+<option value="1440">1 Day</option>
+<option value="10080">1 Week</option>
+<option value="40320">1 Month</option>
+<option value="483840">1 Year</option>
+</select>					</div>
+				</div>
+			</div>
+			
+				
+        			<div class="item_group">
+				<div class="item item_captcha">
+					<label for="captcha">Spam protection						<span class="instruction">-  </span>
+					</label>
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
+		<div class="g-recaptcha" data-sitekey="6LfIMAcTAAAAAPke3mAt0nu12lRi_2AUJyWOV_at"></div>				</div>
+			</div>
+					<div class="form-actions">
+					<br>
+				<button type="submit" name="submit" value="submit" class="btn btn-large btn-primary">
+					<i class="icon-pencil icon-white"></i>
+					Create				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+			<footer class="footer">
+	Powered by <a href="https://github.com/claudehohl/Stikked">Stikked | Pastebin.pl 2014 - today</a>
+</footer>
+		</div>
+<div style="display: none;" id="codemirror_modes">{"html5":"htmlmixed","css":"css","javascript":"javascript","php":"php","python":"python","ruby":"ruby","lua":"text\/x-lua","bash":"text\/x-sh",
+"go":"go","c":"text\/x-csrc","cpp":"text\/x-c++src","diff":"diff","latex":"stex","sql":"sql","xml":"xml","apl":"apl","asterisk":"asterisk","c_loadrunner":"text\/x-csrc","c_mac":"text\/x-csrc","coffeescript":"text\/x-coffeescript",
+"csharp":"text\/x-csharp","d":"d","ecmascript":"javascript","erlang":"erlang","groovy":"text\/x-groovy","haskell":"text\/x-haskell","haxe":"text\/x-haxe","html4strict":"htmlmixed","java":"text\/x-java","java5":"text\/x-java",
+"jquery":"javascript","mirc":"mirc","mysql":"sql","ocaml":"text\/x-ocaml","pascal":"text\/x-pascal","perl":"perl","perl6":"perl","plsql":"sql","properties":"text\/x-properties","q":"text\/x-q","scala":"scala",
+"scheme":"text\/x-scheme","tcl":"text\/x-tcl","vb":"text\/x-vb","verilog":"text\/x-verilog","yaml":"text\/x-yaml","z80":"text\/x-z80"}</div><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56991843-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script type="text/javascript" src="https://pastebin.pl/static/asset/15320142903d6836530051c01e1777b75f2027f3ec.js" charset="UTF-8"></script>
+	</body>
+</html>

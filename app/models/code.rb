@@ -3,9 +3,8 @@ class Code < ApplicationRecord
     # def as_json(options = {})
     #     super(options).merge(id: to_param)
     # end
-    include Hashid::Rails
-    belongs_to :user
-    
+  include Hashid::Rails
+  belongs_to :user
   validates :title, presence: true
   validates :body, presence: true
 

@@ -6,3 +6,4 @@
 //= require clipboard
 //= require codemirror
 //= require clipboard.min
+//= require codemirror

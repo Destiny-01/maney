@@ -1,12 +1,15 @@
 class CodesController < ApplicationController
-  before_action :check_quota, only: [:create]
-  before_action :set_code, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+
+  # before_action :set_code, only: [:show, :edit, :update, :destroy]
+  before_action :set_code, only: %I[show edit update destroy]
+  before_action :authenticate_user!, only: %I[create edit update destroy]
   # GET /codes
   # GET /codes.json
   def index
     @codes = Code.all
   end
+
+  # HardWorker.perform_at(2.mins.from.created_at) if current_user.role == "user"
 
   # GET /codes/1
   # GET /codes/1.json
@@ -15,7 +18,7 @@ class CodesController < ApplicationController
 
   # GET /codes/new
   def new
-    @code = Code.new
+    @code = current_user.codes.build
   end
 
   # GET /codes/1/edit
@@ -26,12 +29,21 @@ class CodesController < ApplicationController
   # POST /codes.json
   def create
     @code = current_user.codes.build(code_params)
-    # @code = Code.new(code_params)
-
+    # @codes = Code.all/
     respond_to do |format|
       if @code.save
         format.html { redirect_to @code, notice: 'Code was successfully created.' }
         format.json { render :show, status: :created, location: @code }
+        # CodesChannel.broadcast(@code)
+        ActionCable.server.broadcast(
+          'code_channel',
+         {
+           id: code.id,
+           title: code.title,
+           body: code.body
+         }
+        )
+        # ActionCable.server.broadcast(Code.all, title: @code.title, body: @code.body)
       else
         format.html { render :new }
         format.json { render json: @code.errors, status: :unprocessable_entity }
@@ -65,20 +77,15 @@ class CodesController < ApplicationController
   
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-    def check_quota
-      if Code.count >= 5
-        @quota_warning = "code limit reached."
-      end
-    end
+# Use callbacks to share common setup or constraints between actions.
+  def set_code
+    # Rails.logger.info params[:hashid]
+    @code = Code.find_by_hashid(params[:id])
+    @codes = Code.all
+  end
 
-    def set_code
-      # Rails.logger.info params[:hashid]
-      @code = Code.find_by_hashid(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def code_params
-      params.require(:code).permit(:title, :body, :language)
-    end
+  # Only allow a list of trusted parameters through.
+  def code_params
+    params.require(:code).permit(:title, :body, :language)
+  end
 end

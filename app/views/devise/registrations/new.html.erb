@@ -25,18 +25,16 @@
           </div>
 
           <div class="field">
-            <%#= for role in User::ROLES<br /> %>
+              <%#= for role in User::ROLES<br /> %>
               <%#= f.label :role %>
               <%#= f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}) %>
-              <%#= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+              <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
               <%#%= f.select :role, User.roles.keys.map { |w| [w.humanize, w] }%>
               <%#= f.select :role, User.roles.map { |key, value| [key.humanize, key] }%>
-              <%= f.select :role, options_for_select([['User', 'user'], ['Pro', 'pro']]) %>
+              <%#= f.select :role, options_for_select([['User', 'user'], ['Pro', 'pro']]) %>
+              <%#= f.select(:stat, options_for_select([["free", "free"], ['pro', 'pro']])) %>
               <%#= f.select :status, User.statuses.keys, {}, class: 'user-roles-select' %>
-              <%#= f.select :status, User.statuses.keys, {}%>
-               <div class="field form-group">
-                  <%= f.select :status, ['Default(text)', 'Ruby', 'Other'] %>
-                </div>
+              <%#= f.select :status, User.statuses.keys, {}%>              
           </div>
 
           <div class="actions">

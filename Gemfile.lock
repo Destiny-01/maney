@@ -206,6 +206,9 @@ GEM
     simple_form (5.0.3)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    simple_scheduler (1.2.0)
+      rails (>= 5.0)
+      sidekiq (>= 5.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -269,10 +272,12 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)
   react_on_rails
+  redis
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq
   simple_form
+  simple_scheduler
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data

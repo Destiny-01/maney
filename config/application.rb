@@ -10,6 +10,11 @@ module Maney
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.assets.paths << Rails.root.join('node_modules')
+
+    config.autoload_paths += %W(
+      #{config.root}/app/services
+    )
 
     # Configuration for the application, engines, and railties goes here.
     #

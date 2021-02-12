@@ -1,0 +1,155 @@
+    <textarea name="code[body]" id="editor" cols="30" rows="10"></textarea>
+            <%= javascript_include_tag '/assets/codemirror' %>
+            <%= javascript_include_tag '/assets/javascript' %>
+            <%= javascript_include_tag '/assets/ruby' %>
+            <%= javascript_include_tag '/assets/go' %>
+            <%= javascript_include_tag '/assets/xml' %>
+            <%= javascript_include_tag '/assets/sql' %>
+            <%= javascript_include_tag '/assets/swift' %>
+            <%= javascript_include_tag '/assets/css' %>
+            <%= javascript_include_tag '/assets/htmlmixed' %>
+            <%= javascript_include_tag '/assets/php' %>
+            <%= javascript_include_tag '/assets/r' %>
+            <%= javascript_include_tag '/assets/python' %>
+            <%= stylesheet_link_tag '/assets/codemirror' %>
+            <%= stylesheet_link_tag '/assets/dracula' %>
+            <%# <script type="text/javascript">                
+                vmlt cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "javascript", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script> %>
+        <% if @code.language= "htmlmixed" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "ruby", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+                    <%# end %>
+         <% elsif @code.language = "ruby" %>
+            <script type="text/javascript">                 
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "ruby", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+         <% elsif @code.language= "r" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "r", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+         <% elsif @code.language= "sql" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "sql", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+         <% elsif @code.language= "xml" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "xml", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+
+
+         <% elsif @code.language= "go" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "go", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+         <% elsif @code.language= "java" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "x-java", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+         <% elsif @code.language= "python" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "python", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+         <% elsif @code.language= "javascript" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "javascript", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+         <% elsif @code.language= "swift" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "swift", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+         <%# end %>
+
+
+         <% elsif @code.language= "css" %>
+            <script type="text/javascript">                
+                let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true, 
+                mode: "css", 
+                theme: "dracula",
+                lineWrapping: false
+                });
+            </script>
+            <% else %>
+            
+        <% end %>

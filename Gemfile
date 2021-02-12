@@ -12,18 +12,20 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
-gem 'dotenv-rails', groups: [:development, :test]
-gem 'sidekiq'
-gem 'devise'
-gem "codemirror-rails"
-gem 'cancancan'
-gem "pundit"
 gem 'better_errors'
 gem 'binding_of_caller'
-gem 'simple_form'
+gem 'cancancan'
 gem 'clipboard-rails'
+gem 'codemirror-rails'
+gem 'devise'
+gem 'dotenv-rails', groups: %i[development test]
 gem 'hashid-rails'
+gem 'pundit'
+gem 'redis'
+gem 'sidekiq'
+gem 'simple_form'
+gem 'simple_scheduler'
+gem 'webpacker'
 # gem 'friendly_id'
 gem 'react_on_rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -43,7 +45,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -68,5 +70,5 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mini_racer', platforms: :ruby
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

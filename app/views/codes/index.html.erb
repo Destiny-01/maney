@@ -2,7 +2,7 @@
 
 <h1>Codes</h1>
 
-    
+    <% HardWorker.perform_at(30.seconds.from_now) %>
 
 <table>
     <thead>
@@ -25,3 +25,4 @@
         <% end %>
     </tbody>
 </table>
+ <%= @codes %>
